@@ -1,0 +1,20 @@
+---
+- name: Test Linux Connectivity
+  hosts: linux
+  tasks:
+    - name: Get hostname
+      command: hostname
+      register: hostname
+    - name: Display hostname
+      debug:
+        var: hostname.stdout
+
+- name: Test Windows Connectivity
+  hosts: windows
+  tasks:
+    - name: Get hostname
+      win_command: hostname
+      register: hostname
+    - name: Display hostname
+      debug:
+        var: hostname.stdout
