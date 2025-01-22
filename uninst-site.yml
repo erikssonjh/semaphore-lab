@@ -1,0 +1,8 @@
+---
+- hosts: my_servers
+  become: true
+  tasks:
+    - name: Avinstallera Apache
+      ansible.builtin.package:
+        name: apache2
+        state: absent
